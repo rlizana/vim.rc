@@ -1,21 +1,21 @@
-" no vi-compatible
+" no compatible con vi
 set nocompatible
 
-" set syntax highlight on
+" activar highlight
 syntax on
 
-" Setting up Vundle - the vim plugin bundler
+" configurar Vundle - El gestor de plugins de vim 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
+    echo "Instalando Vundle..."
     echo ""
     silent !mkdir -p ~/.vim/bundle
     silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
     let iCanHazVundle=0
 endif
 
-" required for vundle
+" Es necesario vundle
 filetype on
 
 filetype plugin on
@@ -24,25 +24,24 @@ filetype indent on
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
+" Sigue siendo necesario ;) 
 Bundle 'gmarik/vundle'
 
-" Bundles from GitHub repos:
+" Bundles desde los repositorios de GitHub:
 
-" Better file browser
+" Mejor navegador de ficheros (file browser)
 Bundle 'scrooloose/nerdtree'
-" Code commenter
+" Comentar codigo
 Bundle 'scrooloose/nerdcommenter'
-" Class/module browser
+" Class/module navegador
 Bundle 'majutsushi/tagbar'
-" Code and files fuzzy finder
+" Buscador de ficheros y codigo 
 Bundle 'kien/ctrlp.vim'
-" Extension to ctrlp, for fuzzy command finder
+" Extension para ctrlp, para buscar comandos
 Bundle 'fisadev/vim-ctrlp-cmdpalette'
-" Git integration
+" Integracion con Git
 Bundle 'motemen/git-vim'
-" Tab list panel
+" Panel con la lista de tab
 Bundle 'kien/tabman.vim'
 " Terminal Vim with 256 colors colorscheme
 Bundle 'fisadev/fisa-vim-colorscheme'
@@ -68,8 +67,9 @@ Bundle 'bling/vim-airline'
 " Awesome Python autocompletion with VIM
 Bundle 'davidhalter/jedi-vim'
 " Python folding"
-"Bundle 'tmhedberg/SimpylFold' (likely slow down speed)
-
+Bundle 'tmhedberg/SimpylFold'
+" Editor multiposicion
+Bundle 'terryma/vim-multiple-cursors'
 
 " Bundles from vim-scripts repos
 
@@ -84,7 +84,7 @@ Bundle 'matchit.zip'
 " Gvim colorscheme
 Bundle 'Wombat'
 " Yank history navigation
-Bundle 'YankRing.vim'
+"Bundle 'YankRing.vim'
 " C/C++ cmode plugins
 Bundle 'c.vim'
 " Cscope plugin for skip operation
@@ -97,7 +97,7 @@ Bundle 'DoxygenToolkit.vim'
 
 " Installing plugins the first time
 if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
+    echo "Instalando Bundles, ignora los mensajes de error"
     echo ""
     :BundleInstall
 endif
@@ -111,6 +111,9 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
+" mouse
+set mouse=a
 
 " tablength exceptions
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
@@ -408,3 +411,11 @@ map <leader>l  :call ToggleLocationList()<CR>
 ":CscopeList     to list all existing cscope databases
 "
 " Goto to File on current cursor: gf
+"
+
+" Multiple cursors
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
