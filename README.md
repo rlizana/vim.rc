@@ -13,6 +13,6 @@ Instalación
 ===========
 ```
 mv ~/.vim ~/.vim.backup
-git clone git@git.trey.es:roberto/vim-rc.wiki.git ~/.vim
+git clone https://github.com/rlizana/vim.rc.git ~/.vim
 ```
 Ejecuta en una consola vim, y se descargará automaticamente los plugins necesarios
