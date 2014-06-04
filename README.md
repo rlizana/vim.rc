@@ -8,6 +8,7 @@ y sirva para crear una configuración básica de VIM en cualquier servidor u ord
 Se instalará los plugins para desarrollar en Python, como no ;)
 
 
+
 Instalación
 ===========
 ```
